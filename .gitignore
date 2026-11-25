@@ -1,0 +1,17 @@
+### FOLDERS ###
+.vscode/
+.usr/
+build-*/
+
+## CLion ##
+.idea/
+build/
+cmake-build-debug*
+
+# Python Virtual Environment
+.venv/
+venv/
+
+# Environment variables / API keys
+.env
+*.env

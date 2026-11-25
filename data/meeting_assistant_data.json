@@ -1,0 +1,84 @@
+{
+  "profilo_utente": {
+    "nome": "Andrea Celli",
+    "ruolo": "Senior Software Engineer",
+    "reparto": "Engineering & AI",
+    "seniority": "Senior",
+    "competenze": ["Architettura Cloud", "Python", "AI Generativa", "Security"]
+  },
+  "membri_team": [
+    {
+      "nome": "Sara Tech",
+      "ruolo": "Tech Lead",
+      "seniority": "Lead",
+      "competenze": ["Architettura Cloud", "Governance", "Project Management"],
+      "slot_liberi": ["2026-11-26 10:00-12:00", "2026-11-26 14:00-17:00"]
+    },
+    {
+      "nome": "Luca Verdi",
+      "ruolo": "Junior Developer",
+      "seniority": "Junior",
+      "competenze": ["Python", "Logging", "Testing", "API REST"],
+      "slot_liberi": ["2026-11-26 09:00-13:00", "2026-11-26 14:00-18:00"]
+    },
+    {
+      "nome": "Elena Gialli",
+      "ruolo": "Finance & Legal Specialist",
+      "seniority": "Senior",
+      "competenze": ["Contrattualistica", "Budget", "Compliance GDPR"],
+      "slot_liberi": ["2026-11-26 11:00-12:00", "2026-11-26 15:00-16:30"]
+    }
+  ],
+  "inviti_riunioni": [
+    {
+      "id": "MTG-001",
+      "titolo": "Allineamento Strategico Q4 & Budget AI",
+      "organizzatore": "Roberto Gallo (CEO)",
+      "criticita_stakeholder": "Alta (Top Management)",
+      "data_ora": "2026-11-26 10:00-11:00",
+      "tuo_calendario": "Libero",
+      "partecipanti_gia_invitati": ["Andrea Celli", "Sara Tech"],
+      "agenda": "Definizione priorità tecnologiche e allocazione budget 2027 per iniziative AI."
+    },
+    {
+      "id": "MTG-002",
+      "titolo": "Sync settimanale fornitore logging",
+      "organizzatore": "Account Manager Esterno (LogCorp)",
+      "criticita_stakeholder": "Bassa (Fornitore operativo)",
+      "data_ora": "2026-11-26 11:00-11:45",
+      "tuo_calendario": "Libero",
+      "partecipanti_gia_invitati": ["Andrea Celli", "Sara Tech", "Luca Verdi"],
+      "agenda": "Aggiornamento ticket minori di configurazione log e stato avanzamento ordinario."
+    },
+    {
+      "id": "MTG-003",
+      "titolo": "Revisione clausole DPA e privacy nuovo tool",
+      "organizzatore": "Ufficio Acquisti",
+      "criticita_stakeholder": "Media (Interno)",
+      "data_ora": "2026-11-26 15:00-16:00",
+      "tuo_calendario": "Occupato (Sviluppo release)",
+      "partecipanti_gia_invitati": ["Andrea Celli"],
+      "agenda": "Verifica conformità legale e contrattuale del nuovo fornitore SaaS prima della firma."
+    },
+    {
+      "id": "MTG-004",
+      "titolo": "Demo interna API REST & Testing automatizzato",
+      "organizzatore": "Marco Neri (QA Lead)",
+      "criticita_stakeholder": "Media (Interno)",
+      "data_ora": "2026-11-26 16:00-16:45",
+      "tuo_calendario": "Occupato (Call cliente)",
+      "partecipanti_gia_invitati": ["Andrea Celli"],
+      "agenda": "Presentazione dei nuovi flussi di test automatizzati sulle API REST del microservizio."
+    },
+    {
+      "id": "MTG-005",
+      "titolo": "Allineamento generale stato progetti (Sal)",
+      "organizzatore": "PMO Aziendale",
+      "criticita_stakeholder": "Bassa (Informativo)",
+      "data_ora": "2026-11-26 17:00-18:00",
+      "tuo_calendario": "Libero",
+      "partecipanti_gia_invitati": ["Andrea Celli", "Sara Tech", "Luca Verdi", "Elena Gialli"],
+      "agenda": "Aggiornamento informativo generico senza decisioni tecniche in programma."
+    }
+  ]
+}

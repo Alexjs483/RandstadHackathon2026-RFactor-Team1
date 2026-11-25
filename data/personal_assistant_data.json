@@ -1,0 +1,64 @@
+{
+  "profilo_manager": {
+    "nome": "Alessandro Moretti",
+    "ruolo": "IT Delivery Manager",
+    "orari_lavoro": "09:00 - 18:00",
+    "vip_list": ["ceo@azienda.it", "direttore.clienti@cliente-top.com"]
+  },
+  "email_ricevute": [
+    {
+      "id": "EM-001",
+      "mittente_nome": "Roberto Gallo (CEO)",
+      "mittente_email": "ceo@azienda.it",
+      "data_ora": "2026-11-25 08:15",
+      "oggetto": "URGENTE: Report budget cloud Q4 prima del board di domani",
+      "corpo": "Ciao Alessandro, domani alle 10:00 ho il board con gli investitori. Mi serve entro oggi alle 16:00 una sintesi dei costi AWS/GCP dell'ultimo trimestre e la proiezione di risparmio con i nuovi modelli AI. Fammi sapere se ce la fai.",
+      "stato": "Non letta"
+    },
+    {
+      "id": "EM-002",
+      "mittente_nome": "Laura Bellini (Cliente Top - FinBank)",
+      "mittente_email": "direttore.clienti@cliente-top.com",
+      "data_ora": "2026-11-25 09:02",
+      "oggetto": "Proposta call di allineamento rilascio produzione",
+      "corpo": "Buongiorno Alessandro, vorremmo fissare una call di 45 minuti giovedì 27 novembre alle 15:00 con il tuo team tecnico per validare il piano di go-live. Ti chiedo cortesemente di mandarci l'invito a calendario con il link Teams.",
+      "stato": "Non letta"
+    },
+    {
+      "id": "EM-003",
+      "mittente_nome": "Matteo Rinaldi (Fornitore Sicurezza)",
+      "mittente_email": "m.rinaldi@cybersec-partner.it",
+      "data_ora": "2026-11-21 14:30",
+      "oggetto": "R: Approvazione preventivo Penetration Test (In attesa riscontro)",
+      "corpo": "Ciao Alessandro, ti avevo inviato venerdì scorso il preventivo aggiornato per il test di sicurezza. Se non riceviamo conferma entro oggi alle 17:00 perdiamo lo slot della prossima settimana. Attendo tuo ok.",
+      "stato": "In attesa di risposta da 4 giorni"
+    },
+    {
+      "id": "EM-004",
+      "mittente_nome": "Chiara Fontana (Tech Lead)",
+      "mittente_email": "chiara.fontana@azienda.it",
+      "data_ora": "2026-11-25 10:20",
+      "oggetto": "Azioni post-incidente server staging",
+      "corpo": "Ciao Ale, abbiamo risolto il blocco su staging. Per chiudere il ticket servono tre cose: 1) tu devi approvare l'aumento di quota RAM sul portale cloud; 2) Luca deve aggiornare le variabili d'ambiente nel repo; 3) dobbiamo inviare il post-mortem al cliente entro venerdì.",
+      "stato": "Non letta"
+    },
+    {
+      "id": "EM-005",
+      "mittente_nome": "TechWeekly Digest",
+      "mittente_email": "newsletter@techweekly.io",
+      "data_ora": "2026-11-25 07:00",
+      "oggetto": "Le 10 novità dell'AI Enterprise di questa settimana",
+      "corpo": "In questo numero: nuovi benchmark sui modelli open-weight, come ridurre la latenza nelle pipeline RAG e intervista ai founder di tre startup europee...",
+      "stato": "Non letta"
+    },
+    {
+      "id": "EM-006",
+      "mittente_nome": "CloudOps Newsletter",
+      "mittente_email": "news@cloudops-daily.com",
+      "data_ora": "2026-11-25 07:30",
+      "oggetto": "Best practice per Kubernetes e FinOps nel 2027",
+      "corpo": "Scopri come ottimizzare i cluster multi-regione e ridurre gli sprechi sulle istanze spot con la nostra guida gratuita...",
+      "stato": "Non letta"
+    }
+  ]
+}

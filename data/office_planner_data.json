@@ -1,0 +1,60 @@
+{
+  "utente": {
+    "nome": "Giulia Bianchi",
+    "ruolo": "Junior Data Engineer",
+    "team": "Data Platform",
+    "mentor_assegnato": "Marco Ferri",
+    "preferenze": {
+      "giorni_target_ufficio": 3,
+      "esigenze_postazione": ["Doppio monitor", "Zona silenziosa per call"]
+    }
+  },
+  "agenda_settimanale": [
+    {
+      "giorno": "Lunedì",
+      "attività_principali": [
+        { "titolo": "Sprint Planning & Design Architettura", "tipo": "Workshop collaborativo", "durata_ore": 3 },
+        { "titolo": "Allineamento 1:1 con Mentor", "tipo": "Mentorship", "durata_ore": 1 }
+      ]
+    },
+    {
+      "giorno": "Martedì",
+      "attività_principali": [
+        { "titolo": "Sviluppo pipeline ETL su Spark", "tipo": "Lavoro focalizzato (Deep Work)", "durata_ore": 6 }
+      ]
+    },
+    {
+      "giorno": "Mercoledì",
+      "attività_principali": [
+        { "titolo": "Townhall Aziendale con il CTO", "tipo": "Evento aziendale / Visita management", "durata_ore": 2 },
+        { "titolo": "Code Review con il Core Team", "tipo": "Collaborazione tecnica", "durata_ore": 2 }
+      ]
+    },
+    {
+      "giorno": "Giovedì",
+      "attività_principali": [
+        { "titolo": "Debugging e ottimizzazione query SQL", "tipo": "Lavoro focalizzato (Deep Work)", "durata_ore": 7 }
+      ]
+    },
+    {
+      "giorno": "Venerdì",
+      "attività_principali": [
+        { "titolo": "Retrospettiva di fine sprint", "tipo": "Workshop collaborativo", "durata_ore": 2 },
+        { "titolo": "Formazione interna AI Generativa", "tipo": "Formazione", "durata_ore": 2 }
+      ]
+    }
+  ],
+  "presenze_colleghi": [
+    { "nome": "Marco Ferri", "ruolo": "Senior Architect (Mentor)", "team": "Data Platform", "giorni_in_ufficio": ["Lunedì", "Mercoledì"] },
+    { "nome": "Elena Conti", "ruolo": "Product Owner", "team": "Data Platform", "giorni_in_ufficio": ["Lunedì", "Mercoledì", "Venerdì"] },
+    { "nome": "Davide Neri", "ruolo": "Data Engineer", "team": "Data Platform", "giorni_in_ufficio": ["Lunedì", "Martedì", "Mercoledì"] },
+    { "nome": "Sara Villa", "ruolo": "HR Business Partner", "team": "People", "giorni_in_ufficio": ["Martedì", "Giovedì"] }
+  ],
+  "mappa_scrivanie": [
+    { "id_scrivania": "A-01", "zona": "Open Space Hub Nord", "dotazioni": ["Doppio monitor", "Docking USB-C"], "occupante_abituale": "Marco Ferri (Senior Mentor)" },
+    { "id_scrivania": "A-02", "zona": "Open Space Hub Nord", "dotazioni": ["Doppio monitor", "Docking USB-C"], "occupante_abituale": "Libera (adiacente a Marco Ferri)" },
+    { "id_scrivania": "A-03", "zona": "Open Space Hub Nord", "dotazioni": ["Monitor singolo"], "occupante_abituale": "Elena Conti (PO Data Platform)" },
+    { "id_scrivania": "B-10", "zona": "Quiet Zone Sud", "dotazioni": ["Doppio monitor", "Cabine call vicine"], "occupante_abituale": "Libera (zona silenziosa)" },
+    { "id_scrivania": "C-04", "zona": "Area Marketing & Sales", "dotazioni": ["Monitor singolo"], "occupante_abituale": "Libera (lontana dal Core Team)" }
+  ]
+}
