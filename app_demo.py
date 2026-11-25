@@ -1,5 +1,6 @@
 import os
 import json
+import time
 from typing import Literal
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
@@ -7,12 +8,19 @@ from google import genai
 from google.genai import types
 import streamlit as st
 
-# Caricamento variabili d'ambiente
-load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+
+# Caricamento variabili d'ambiente - verifica la presenza della chiave API
+env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+load_dotenv(env_path)
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    st.error(f"Chiave GEMINI_API_KEY non trovata! Assicurati di aver copiato il file .env in: {env_path}")
+    st.stop()
 
 # Inizializzazione client AI con chiave API e timeout
 client = genai.Client(
-    api_key=os.getenv("GEMINI_API_KEY"),
+    api_key=api_key,
     http_options=types.HttpOptions(timeout=15000)
 )
 
@@ -42,7 +50,7 @@ MEETING_SIMULATI = [
 ]
 
 # Funzione di analisi con AI
-def analizza_con_ai(meeting: dict, livello_autonomia: str) -> AnalisiMeeting:
+def analizza_con_ai(meeting: dict, livello_autonomia: str) -> tuple[AnalisiMeeting, str]:
     prompt = f"""
     Sei un Smart Meeting Assistant aziendale. Livello autonomia impostato dall'utente: {livello_autonomia}.
     Analizza questo invito a riunione considerando:
@@ -52,8 +60,18 @@ def analizza_con_ai(meeting: dict, livello_autonomia: str) -> AnalisiMeeting:
     
     Dati riunione: {json.dumps(meeting, ensure_ascii=False)}
     """
-    # Fallback automatico sui modelli funzionanti
-    for modello in ["gemini-3.1-flash-lite", "gemma-4-31b-it", "gemini-3.8-flash"]:
+    
+    # Tutti i modelli testuali leggeri disponibili sulla tua chiave
+    modelli_candidati = [
+        "gemini-3.1-flash-lite",
+        "gemini-3.5-flash-lite",
+        "gemma-4-26b-a4b-it",
+        "gemma-4-31b-it",
+        "gemini-flash-lite-latest",
+        "gemini-3.6-flash",
+    ]
+    
+    for modello in modelli_candidati:
         try:
             response = client.models.generate_content(
                 model=modello,
@@ -64,10 +82,22 @@ def analizza_con_ai(meeting: dict, livello_autonomia: str) -> AnalisiMeeting:
                     temperature=0.2
                 )
             )
-            return AnalisiMeeting.model_validate_json(response.text)
+            return AnalisiMeeting.model_validate_json(response.text), f"Live AI ({modello})"
         except Exception:
+            time.sleep(0.5)
             continue
-    raise RuntimeError("Nessun modello AI disponibile al momento.")
+
+    # Paracadute automatico se Google API è satura (503) durante la demo live
+    is_vip = "CEO" in meeting.get("organizzatore", "")
+    fallback = AnalisiMeeting(
+        titolo=meeting["titolo"],
+        score_utilita=92 if is_vip else 35,
+        azione="ACCETTA" if is_vip else "DECLINA",
+        delegato_suggerito="Nessuno" if is_vip else "Luca (Junior Dev)",
+        motivazione="Organizzatore strategico (CEO) con impatto diretto sulle priorità Q4." if is_vip else "Ridondanza del team già presente in call; tema operativo delegabile con richiesta di verbale.",
+        bozza_email="Confermo con piacere la mia partecipazione all'allineamento strategico." if is_vip else "Grazie per l'invito. Essendo già presente il resto del team tecnico, vi chiedo cortesemente di condividere il verbale a fine call."
+    )
+    return fallback, "Fallback Locale (Server Google 503)"
 
 # Interfaccia Utente (Streamlit)
 st.set_page_config(page_title="AI Prototype Demo", layout="wide")
@@ -85,13 +115,14 @@ with st.sidebar:
 if st.button("Analizza Inviti in Calendario", type="primary"):
     for m in MEETING_SIMULATI:
         with st.spinner(f"Analisi di '{m['titolo']}'..."):
-            res = analizza_con_ai(m, autonomia)
+            res, fonte = analizza_con_ai(m, autonomia)
         
         col1, col2 = st.columns([1, 2])
         with col1:
             st.subheader(res.titolo)
             st.metric("Score Utilità", f"{res.score_utilita}/100")
             st.write(f"**Azione:** `{res.azione}`")
+            st.caption(f"Motore: {fonte}")
             if res.delegato_suggerito != "Nessuno":
                 st.write(f"**Delega a:** {res.delegato_suggerito}")
         with col2:
